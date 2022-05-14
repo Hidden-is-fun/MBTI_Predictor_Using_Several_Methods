@@ -7,3 +7,4 @@ data/mbti_FT.csv
 data/mbti_IE.csv
 data/mbti_JP.csv
 data/mbti_NS.csv
+BigBird_roBERTa_Base/pytorch_model.bin
