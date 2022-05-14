@@ -1,0 +1,9 @@
+.idea
+__pycache__
+src
+saved_models
+models
+data/mbti_FT.csv
+data/mbti_IE.csv
+data/mbti_JP.csv
+data/mbti_NS.csv

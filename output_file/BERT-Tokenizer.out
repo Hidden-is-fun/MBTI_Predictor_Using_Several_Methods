@@ -1,0 +1,92 @@
+"C:\Program Files\Python39\python.exe" "D:/Users/Desktop/Hello world/MBTI_predictor_rebuild/Step3.1_Using-BERT-Tokenizer-WITHOUT-4-Classifiers.py"
+2022-05-11 00:05:02.411681: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-05-11 00:05:03.051384: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 4634 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1
+Epoch 1/1000
+2022-05-11 00:07:38.651035: I tensorflow/stream_executor/cuda/cuda_dnn.cc:368] Loaded cuDNN version 8400
+232/232 [==============================] - 46s 183ms/step - loss: 1.9440 - sparse_categorical_accuracy: 0.3786 - val_loss: 1.3797 - val_sparse_categorical_accuracy: 0.5930
+Epoch 2/1000
+232/232 [==============================] - 42s 179ms/step - loss: 1.2487 - sparse_categorical_accuracy: 0.6415 - val_loss: 1.1038 - val_sparse_categorical_accuracy: 0.6641
+Epoch 3/1000
+232/232 [==============================] - 42s 179ms/step - loss: 0.8773 - sparse_categorical_accuracy: 0.7533 - val_loss: 1.0359 - val_sparse_categorical_accuracy: 0.7008
+Epoch 4/1000
+232/232 [==============================] - 42s 179ms/step - loss: 0.5692 - sparse_categorical_accuracy: 0.8454 - val_loss: 1.1787 - val_sparse_categorical_accuracy: 0.6781
+Epoch 5/1000
+232/232 [==============================] - 26s 112ms/step - loss: 0.3615 - sparse_categorical_accuracy: 0.8979 - val_loss: 1.3090 - val_sparse_categorical_accuracy: 0.6641
+Epoch 6/1000
+232/232 [==============================] - 22s 92ms/step - loss: 0.2216 - sparse_categorical_accuracy: 0.9337 - val_loss: 1.6409 - val_sparse_categorical_accuracy: 0.6281
+Epoch 7/1000
+232/232 [==============================] - 21s 92ms/step - loss: 0.1240 - sparse_categorical_accuracy: 0.9652 - val_loss: 1.4180 - val_sparse_categorical_accuracy: 0.6992
+Epoch 8/1000
+232/232 [==============================] - 21s 91ms/step - loss: 0.0391 - sparse_categorical_accuracy: 0.9928 - val_loss: 1.4313 - val_sparse_categorical_accuracy: 0.7070
+Epoch 9/1000
+232/232 [==============================] - 21s 91ms/step - loss: 0.0213 - sparse_categorical_accuracy: 0.9961 - val_loss: 1.4929 - val_sparse_categorical_accuracy: 0.7047
+Epoch 10/1000
+232/232 [==============================] - 21s 92ms/step - loss: 0.0097 - sparse_categorical_accuracy: 0.9989 - val_loss: 1.4992 - val_sparse_categorical_accuracy: 0.7031
+Epoch 11/1000
+232/232 [==============================] - 21s 91ms/step - loss: 0.0060 - sparse_categorical_accuracy: 0.9996 - val_loss: 1.5516 - val_sparse_categorical_accuracy: 0.7094
+Epoch 12/1000
+232/232 [==============================] - 21s 91ms/step - loss: 0.0046 - sparse_categorical_accuracy: 0.9999 - val_loss: 1.5605 - val_sparse_categorical_accuracy: 0.7094
+Epoch 13/1000
+232/232 [==============================] - 22s 92ms/step - loss: 0.0031 - sparse_categorical_accuracy: 1.0000 - val_loss: 1.6045 - val_sparse_categorical_accuracy: 0.7070
+Epoch 14/1000
+232/232 [==============================] - 21s 91ms/step - loss: 0.0026 - sparse_categorical_accuracy: 0.9999 - val_loss: 1.5773 - val_sparse_categorical_accuracy: 0.7117
+Epoch 15/1000
+232/232 [==============================] - 21s 91ms/step - loss: 0.0020 - sparse_categorical_accuracy: 0.9999 - val_loss: 1.6029 - val_sparse_categorical_accuracy: 0.7094
+Epoch 16/1000
+232/232 [==============================] - 22s 92ms/step - loss: 0.0018 - sparse_categorical_accuracy: 1.0000 - val_loss: 1.6442 - val_sparse_categorical_accuracy: 0.7070
+Epoch 17/1000
+232/232 [==============================] - 21s 91ms/step - loss: 0.0014 - sparse_categorical_accuracy: 1.0000 - val_loss: 1.6754 - val_sparse_categorical_accuracy: 0.7055
+Epoch 18/1000
+232/232 [==============================] - 21s 91ms/step - loss: 0.0011 - sparse_categorical_accuracy: 1.0000 - val_loss: 1.6937 - val_sparse_categorical_accuracy: 0.7102
+Epoch 19/1000
+232/232 [==============================] - 21s 90ms/step - loss: 0.0012 - sparse_categorical_accuracy: 1.0000 - val_loss: 1.7149 - val_sparse_categorical_accuracy: 0.7070
+Epoch 20/1000
+232/232 [==============================] - 21s 91ms/step - loss: 0.0011 - sparse_categorical_accuracy: 1.0000 - val_loss: 1.7553 - val_sparse_categorical_accuracy: 0.7094
+Epoch 21/1000
+232/232 [==============================] - 21s 92ms/step - loss: 0.0047 - sparse_categorical_accuracy: 0.9991 - val_loss: 2.1131 - val_sparse_categorical_accuracy: 0.6430
+Epoch 22/1000
+232/232 [==============================] - 21s 91ms/step - loss: 0.1431 - sparse_categorical_accuracy: 0.9535 - val_loss: 1.8275 - val_sparse_categorical_accuracy: 0.6758
+Epoch 23/1000
+232/232 [==============================] - 22s 92ms/step - loss: 0.1093 - sparse_categorical_accuracy: 0.9667 - val_loss: 1.9737 - val_sparse_categorical_accuracy: 0.6742
+Epoch 24/1000
+232/232 [==============================] - 21s 91ms/step - loss: 0.0195 - sparse_categorical_accuracy: 0.9942 - val_loss: 1.9735 - val_sparse_categorical_accuracy: 0.6898
+Epoch 25/1000
+232/232 [==============================] - 22s 92ms/step - loss: 0.0043 - sparse_categorical_accuracy: 0.9989 - val_loss: 2.0700 - val_sparse_categorical_accuracy: 0.6906
+Epoch 26/1000
+232/232 [==============================] - 22s 92ms/step - loss: 0.0028 - sparse_categorical_accuracy: 0.9993 - val_loss: 2.1297 - val_sparse_categorical_accuracy: 0.6914
+Epoch 27/1000
+232/232 [==============================] - 22s 92ms/step - loss: 0.0020 - sparse_categorical_accuracy: 0.9999 - val_loss: 2.1691 - val_sparse_categorical_accuracy: 0.6984
+Epoch 28/1000
+232/232 [==============================] - 22s 93ms/step - loss: 7.6260e-04 - sparse_categorical_accuracy: 1.0000 - val_loss: 2.1922 - val_sparse_categorical_accuracy: 0.7031
+Epoch 29/1000
+232/232 [==============================] - 21s 92ms/step - loss: 0.0020 - sparse_categorical_accuracy: 0.9996 - val_loss: 2.2045 - val_sparse_categorical_accuracy: 0.6914
+Epoch 30/1000
+232/232 [==============================] - 22s 94ms/step - loss: 6.9165e-04 - sparse_categorical_accuracy: 1.0000 - val_loss: 2.2868 - val_sparse_categorical_accuracy: 0.6945
+Epoch 31/1000
+ 48/232 [=====>........................] - ETA: 16s - loss: 8.9382e-04 - sparse_categorical_accuracy: 1.0000Traceback (most recent call last):
+  File "D:\Users\Desktop\Hello world\MBTI_predictor_rebuild\Step3.1_Using-BERT-Tokenizer-WITHOUT-4-Classifiers.py", line 206, in <module>
+    text_model.fit(train_data,
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python39\site-packages\keras\utils\traceback_utils.py", line 64, in error_handler
+    return fn(*args, **kwargs)
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python39\site-packages\keras\engine\training.py", line 1384, in fit
+    tmp_logs = self.train_function(iterator)
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python39\site-packages\tensorflow\python\util\traceback_utils.py", line 150, in error_handler
+    return fn(*args, **kwargs)
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python39\site-packages\tensorflow\python\eager\def_function.py", line 915, in __call__
+    result = self._call(*args, **kwds)
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python39\site-packages\tensorflow\python\eager\def_function.py", line 947, in _call
+    return self._stateless_fn(*args, **kwds)  # pylint: disable=not-callable
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python39\site-packages\tensorflow\python\eager\function.py", line 2956, in __call__
+    return graph_function._call_flat(
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python39\site-packages\tensorflow\python\eager\function.py", line 1853, in _call_flat
+    return self._build_call_outputs(self._inference_function.call(
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python39\site-packages\tensorflow\python\eager\function.py", line 499, in call
+    outputs = execute.execute(
+  File "C:\Users\Administrator\AppData\Roaming\Python\Python39\site-packages\tensorflow\python\eager\execute.py", line 54, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+KeyboardInterrupt
+2022-05-11 00:19:56.288311: W tensorflow/core/kernels/data/generator_dataset_op.cc:107] Error occurred when finalizing GeneratorDataset iterator: FAILED_PRECONDITION: Python interpreter state is not initialized. The process may be terminated.
+	 [[{{node PyFunc}}]]
+
+Process finished with exit code -1073741510 (0xC000013A: interrupted by Ctrl+C)
