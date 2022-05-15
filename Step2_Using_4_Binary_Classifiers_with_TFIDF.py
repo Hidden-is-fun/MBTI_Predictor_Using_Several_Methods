@@ -141,7 +141,7 @@ def pre_process_text(data, remove_stop_words=True, remove_mbti_profiles=True):
 
     for row in data.iterrows():
         # Remove and clean comments
-        posts = row[1].posts
+        posts = row[1].text
 
         # Remove url links
         temp = re.sub('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', ' ', posts)

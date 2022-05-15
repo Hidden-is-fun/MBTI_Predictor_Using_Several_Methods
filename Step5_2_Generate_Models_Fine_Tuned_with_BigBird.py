@@ -129,7 +129,7 @@ optimizer = optim.Adam(cls.parameters(), lr=learning_rate)
 
 pre = time.time()
 
-''' The code below is for TRAIN, DO NOT run it if you just want to make a PREDICTION
+''' The code below is for TRAIN, DO NOT run it if you just want to EVALUATE the model
 for i in range(epoch):
     cls.train()
     for batch_idx, (data, target) in enumerate(train_loader):

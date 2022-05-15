@@ -28,6 +28,10 @@ def transform_label(lb):
     return lb_int
 
 
+print(transform_label('ENTP'))
+exit(0)
+
+
 def data_process(posts):
     posts = re.sub(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', ' [MASK] ', posts)
     posts = re.sub(r'\d+', '*', posts)
@@ -118,5 +122,3 @@ pd.DataFrame.to_csv(DataFrame({"label": train_Y, "token": train_X_processed}), '
 Train: 13538
 Total: 12175
 '''
-
-
