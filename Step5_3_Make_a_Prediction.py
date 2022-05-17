@@ -1,12 +1,16 @@
+import os
 import re
 
+import pandas as pd
 import torch
+from pandas import DataFrame
 from torch import nn
 from torch.utils.data import DataLoader
 from torch.utils.data.dataset import TensorDataset
 from transformers import BigBirdModel, BigBirdTokenizer
 import warnings
 
+server_mode = True
 model_token_length = 1024
 warnings.filterwarnings("ignore")
 
@@ -122,6 +126,20 @@ class Predict:
 
 
 if __name__ == '__main__':
-    while True:
-        token = input()
-        Predict(token, model_token_length).prediction()
+    if server_mode:
+        read_path = 'web_core/text.txt'
+        write_path = 'web_core/res.txt'
+        while True:
+            try:
+                with open(read_path, encoding='utf-8') as f:
+                    text = f.read()
+                    tag, res = Predict(text, model_token_length).prediction()
+                os.remove(read_path)
+                with open(write_path, 'w', encoding='utf-8') as f:
+                    f.write(f'{tag[0]}\n{tag[1]}\n{tag[2]}\n{tag[3]}\n{res[0]}\n{res[1]}\n{res[2]}\n{res[3]}')
+            except Exception:
+                pass
+    else:
+        while True:
+            token = input()
+            Predict(token, model_token_length).prediction()

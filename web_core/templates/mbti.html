@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MBTI Predictor</title>
+</head>
+
+<body>
+    <form method="post" action="">
+        <center>
+            <p style="font-size:30px">MBTI人格测试系统</p>
+            {% csrf_token %}
+            <textarea wrap="hard" rows=10 name="text" placeholder="请在此输入一段英文文本"
+                style="height:80%;width:75%;font-size:20px;font-family:JetBrains Mono">{{ text }}</textarea>
+            <br><br>
+            <button type="submit" style="height:70px;width:175px;font-size:20px">开始测试</button>
+            <p style="font-size:30px">{{ result }}</p>
+            <p style="font-size:20px">{{ IE }}</p>
+            <p style="font-size:20px">{{ NS }}</p>
+            <p style="font-size:20px">{{ FT }}</p>
+            <p style="font-size:20px">{{ JP }}</p>
+        </center>
+    </form>
+</body>
+
+</html>
