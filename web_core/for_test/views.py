@@ -17,6 +17,7 @@ def mbti(request):
             if request.POST.get('text'):
                 with open("web_core/text.txt", "w") as f:
                     f.write(request.POST.get('text'))
+                    # f.write('Hi I am 21 years, currently, I am pursuing my graduate degree in computer science and management (Mba Tech CS ), It is a 5-year dual degree.... My CGPA to date is 3.8/4.0 . I have a passion for teaching since childhood. Math has always been the subject of my interest in school. Also, my mother has been one of my biggest inspirations for me. She started her career as a teacher and now has her own education trust with preschools schools in Rural and Urban areas. During the period of lockdown, I dwelled in the field of blogging and content creation on Instagram.  to spread love positivity kindness . I hope I am able deliver my best to the platform and my optimistic attitude helps in the growth that is expected. Thank you for the opportunity. ')
             text = request.POST.get('text')
         except:
             pass
@@ -36,7 +37,6 @@ def mbti(request):
                 os.remove('web_core/res.txt')
                 break
             except Exception as sb:
-                with open("web_core/log.txt", "w") as f:
-                    f.write(str(sb))
+                pass
         return render(request, 'mbti.html', locals())
     return render(request, 'mbti.html', locals())

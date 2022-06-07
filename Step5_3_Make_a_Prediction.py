@@ -36,6 +36,9 @@ model_name = 'BigBird_roBERTa_Base'
 tokenizer = BigBirdTokenizer.from_pretrained(model_name, cache_dir="BigBird_roBERTa_Base")
 device = torch.device('cuda')
 
+read_path = 'web_core/text.txt'
+write_path = 'web_core/res.txt'
+
 
 class Predict:
     def __init__(self, input_text, max_token_length):
@@ -43,6 +46,7 @@ class Predict:
         self.input_ids = None
         self.input_text = input_text
         self.max_token_length = max_token_length
+        self.device = torch.device('cuda')
 
     def rebuild_token(self):
         current_length = 0
@@ -91,7 +95,7 @@ class Predict:
 
         for _ in range(4):
             model = torch.load(f'saved_models/BigBird_{lb[_]}_epoch_10.model')
-            model.to(device)
+            model.to(self.device)
             model.eval()
 
             count = 0
@@ -99,12 +103,12 @@ class Predict:
             for __ in data_split:
                 count += 1
                 data = torch.LongTensor([__])
-                data = data.to(device)
+                data = data.to(self.device)
 
                 mask = []
                 for sample in data:
                     mask.append([1 if i != 0 else 0 for i in sample])
-                mask = torch.Tensor(mask).to(device)
+                mask = torch.Tensor(mask).to(self.device)
 
                 output = model(data, attention_mask=mask)
                 value += sigmoid(output)[:, 0].item()
@@ -127,17 +131,15 @@ class Predict:
 
 if __name__ == '__main__':
     if server_mode:
-        read_path = 'web_core/text.txt'
-        write_path = 'web_core/res.txt'
         while True:
             try:
-                with open(read_path, encoding='utf-8') as f:
+                with open(read_path) as f:
                     text = f.read()
                     tag, res = Predict(text, model_token_length).prediction()
                 os.remove(read_path)
                 with open(write_path, 'w', encoding='utf-8') as f:
                     f.write(f'{tag[0]}\n{tag[1]}\n{tag[2]}\n{tag[3]}\n{res[0]}\n{res[1]}\n{res[2]}\n{res[3]}')
-            except Exception:
+            except Exception as sb:
                 pass
     else:
         while True:

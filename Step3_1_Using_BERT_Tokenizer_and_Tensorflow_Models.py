@@ -75,14 +75,14 @@ pd.DataFrame.to_csv(DataFrame({'type': new_lb, 'posts': new_posts}), 'data/new_d
 exit(0)
 '''
 
-is_predict = False  # Change the value to 'False' to train the model
+is_predict = True  # Change the value to 'False' to train the model
 
 
 class TEXT_MODEL(tf.keras.Model):
 
     def __init__(self,
                  vocabulary_size,
-                 embedding_dimensions=128,
+                 embedding_dimensions=300,
                  cnn_filters=50,
                  dnn_units=512,
                  model_output_classes=2,
@@ -183,11 +183,11 @@ if __name__ == '__main__':
 
     # hyper parameters
     BATCH_SIZE = 32
-    EMB_DIM = 300
-    CNN_FILTERS = 100
-    DNN_UNITS = 256
+    EMB_DIM = 768
+    CNN_FILTERS = 256
+    DNN_UNITS = 768
     OUTPUT_CLASSES = 2
-    DROPOUT_RATE = 0.2
+    DROPOUT_RATE = 0.1
     NB_EPOCHS = 1000
     max_len = 2048
 
@@ -284,7 +284,7 @@ if __name__ == '__main__':
         results = text_model.evaluate(test_data)
         print(results)
         print(f'{personality_type[_i][0]}/{personality_type[_i][1]} Trained Successfully!\n Accuracy: {results[1] * 100}%')
-        text_model.save(f'saved_models/{personality_type[_i][0]}{personality_type[_i][1]}_bert_tokenize')
+        text_model.save(f'saved_models/{personality_type[_i][0]}{personality_type[_i][1]}_bert_tokenize_test')
         # print(f'model {personality_type[_i][0]}/{personality_type[_i][1]} saved.\n\n')
     '''
     _ = [0] * 16

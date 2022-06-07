@@ -12,7 +12,10 @@ import time
 
 model_name = 'bert-base-uncased'  # 指定需下载的预训练模型参数
 
-tokenizer = BertTokenizer.from_pretrained('./bert-base-uncased')
+tokenizer = BertTokenizer.from_pretrained("bert_base_uncased")
+print(tokenizer.tokenize("A introduction of BERT Token Embeddings"))
+print(tokenizer.encode('[CLS] A introduction of BERT Token Embeddings [SEP]'))
+exit(0)
 
 data_set = pd.read_csv("data/mbti.csv")
 
@@ -76,7 +79,7 @@ for _ in range(len(data_set)):
     data = data_process(data_set['posts'][_])
     x = remove_useless_posts(data)
     for __ in range(x):
-        _label.append(0 if data_set['type'][_][2] == 'F' else 1)
+        _label.append(0 if data_set['type'][_][0] == 'I' else 1)
 
 dataset = np.array(_dataset)
 labels = np.array(_label)
@@ -140,7 +143,7 @@ eval_set = TensorDataset(torch.LongTensor(input_ids),
                          torch.FloatTensor(input_labels))
 eval_loader = DataLoader(dataset=eval_set,
                          batch_size=1,
-                         shuffle=True)
+                         shuffle=False)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -148,7 +151,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 class fn_cls(nn.Module):
     def __init__(self):
         super(fn_cls, self).__init__()
-        self.model = BertModel.from_pretrained('./bert-base-uncased')
+        self.model = BertModel.from_pretrained("bert_base_uncased")
         self.model.to(device)
         self.dropout = nn.Dropout(0.1)
         self.l1 = nn.Linear(768, 2)
@@ -167,7 +170,9 @@ def predict(logits):
     return res
 
 
-cls = fn_cls()
+'''
+# cls = fn_cls()
+cls = torch.load('saved_models/IE9.model')
 cls.to(device)
 cls.train()
 
@@ -216,8 +221,9 @@ for i in range(epoch):
 
 print('训练时间：', time.time() - pre)
 torch.save(cls, 'FT.model')
-
-model = torch.load('FT.model')
+'''
+model = torch.load('saved_models/IE9.model')
+model.to(device)
 model.eval()
 
 correct = 0
@@ -234,6 +240,7 @@ for batch_idx, (data, target) in enumerate(eval_loader):
 
     output = model(data, attention_mask=mask)
     pred = predict(output)
+    print(target, pred)
 
     correct += (pred == target).sum().item()
     total += len(data)

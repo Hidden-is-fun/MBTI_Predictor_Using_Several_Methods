@@ -11,7 +11,7 @@
         <center>
             <p style="font-size:30px">MBTI人格测试系统</p>
             {% csrf_token %}
-            <textarea wrap="hard" rows=10 name="text" placeholder="请在此输入一段英文文本"
+            <textarea wrap="hard" rows=15 name="text" placeholder="请在此输入一段英文文本"
                 style="height:80%;width:75%;font-size:20px;font-family:JetBrains Mono">{{ text }}</textarea>
             <br><br>
             <button type="submit" style="height:70px;width:175px;font-size:20px">开始测试</button>

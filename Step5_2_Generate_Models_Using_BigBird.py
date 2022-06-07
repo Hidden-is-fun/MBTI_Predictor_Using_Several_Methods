@@ -14,7 +14,7 @@ token_length = 1024
 accumulation_steps = 4
 epoch = 5
 batch_size = 8
-TOTAL_SIZE = 12195  # 13538
+TOTAL_SIZE = 13538  # 13538
 TRAINSET_SIZE = 12175
 type = ['IE', 'NS', 'FT', 'JP']
 model_path = f'saved_models/BigBird_{type[current_job]}_epoch_{start_epoch}.model'
@@ -107,7 +107,7 @@ class fn_cls(nn.Module):
 
     def forward(self, x, attention_mask=None):
         outputs = self.model(x, attention_mask=attention_mask)
-        x = outputs[1]  # 取池化后的结果 batch * 768
+        x = outputs[1]
         x = x.view(-1, 768)
         x = self.dropout(x)
         x = self.l1(x)

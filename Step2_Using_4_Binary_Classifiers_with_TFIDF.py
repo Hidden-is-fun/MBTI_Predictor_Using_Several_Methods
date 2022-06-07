@@ -8,9 +8,10 @@ from nltk.corpus import stopwords
 from pandas import DataFrame
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LogisticRegression, SGDClassifier
 from sklearn.metrics import accuracy_score, f1_score
 from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
 from xgboost import XGBClassifier
 
 '''
@@ -141,7 +142,7 @@ def pre_process_text(data, remove_stop_words=True, remove_mbti_profiles=True):
 
     for row in data.iterrows():
         # Remove and clean comments
-        posts = row[1].text
+        posts = row[1].posts
 
         # Remove url links
         temp = re.sub('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', ' ', posts)
@@ -491,7 +492,7 @@ for l in range(len(personality_type)):
 
     # fit model on training data
     # exec()
-    model = XGBClassifier()
+    model = SVC(random_state=1)
     model.fit(X_train, ytr)
 
     # make predictions for test data
@@ -503,4 +504,4 @@ for l in range(len(personality_type)):
     result.append([[yte[_], predictions[_]] for _ in range(len(yte))])
     print("%s Accuracy: %.2f%%" % (personality_type[l], accuracy * 100.0))
     print(f"F1 score:{f1_score(yte, predictions, labels=None, pos_label=1, average='binary', sample_weight=None)}")
-pred_res_process(result, 'RF')
+pred_res_process(result, 'SVC')
